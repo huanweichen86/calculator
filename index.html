@@ -1,0 +1,73 @@
+<html>
+  <head><meta charset="UTF-8">
+  <title>計算機</title>
+    <style>
+button {
+  font-size: 24px;       /* 文字大小 */
+  padding: 10px 20px;    /* 內距 */
+  height: 60px;          /* 高度固定 */
+  width: 60px;           /* 寬度固定 */
+  box-sizing: border-box; /* 包含 padding 在高度寬度內 */
+}
+  </style>
+  </head>
+      <body>
+	<button onclick = "cal(1)">1</button>
+	<button onclick = "cal(2)">2</button>
+	<button onclick = "cal(3)">3</button>
+	<button onclick = "cl()">C</button>
+        <button onclick = "del()">del</button>
+	</p>
+	<button onclick = "cal(4)">4</button>
+	<button onclick = "cal(5)">5</button>
+	<button onclick = "cal(6)">6</button>
+	<button onclick = "ope('+')">+</button>
+	</p>
+	<button onclick = "cal(7)">7</button>
+	<button onclick = "cal(8)">8</button>
+	<button onclick = "cal(9)">9</button>
+	<button onclick = "ope('-')">-</button>
+	</p>
+	<button onclick = "ope('*')">*</button>
+	<button onclick = "cal(0)">0</button>
+	<button onclick = "ope('/')">/</button>
+	<button onclick = "result()">=</button>
+	<p>以下是計算欄位</p>
+	<p id="display"></p>
+	  <script>
+
+	  let a = []; //輸入的數字
+
+	  function cal(x){
+	    a.push(x);
+	  updateDisplay();
+	  }
+
+	  function ope(op){
+	    a.push(op);
+	  updateDisplay();
+	  }
+	  
+	  function updateDisplay(){
+	   document.getElementById("display").innerHTML = a.join("");//document.getElementById是指尋找到display這個位置，innerHTML是把裡面的字改成後面 a.join("") a.join("")是把a陣列的東西變成字串
+	  }
+
+	  function result(){
+	    let res = eval(a.join("")); //計算字串 eval是把字串內東西當作程式計算
+	    document.getElementById("display").innerHTML = res;
+	    a = [res];
+	    console.log(a);
+	  }
+
+	  function cl(){
+	    a = [];
+	    document.getElementById("display").innerHTML = "";
+	   }
+
+	  function del(){
+	    a.pop();
+	    updateDisplay();
+	  }
+	  </script>
+      </body>
+</html>
