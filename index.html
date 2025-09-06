@@ -3,7 +3,7 @@
   <title>計算機</title>
     <style>
     #display {
-      width: 260px;           /* 固定寬度 */
+      width: 255px;           /* 固定寬度 */
       height: 50px;           /* 固定高度 */
       border: 2px solid #000; /* 黑色邊框 */
       margin-bottom: 10px;
@@ -22,31 +22,37 @@
       width: 60px;           /* 寬度固定 */
       box-sizing: border-box; /* 包含 padding 在高度寬度內 */
     }
+    body {
+    background-image: url("https://i.postimg.cc/Dy2L5HLT/IMG-5590.jpg");
+    background-size: cover;       /* 讓圖片鋪滿整個畫面 */
+    background-position: center;  /* 圖片置中 */
+    background-repeat: no-repeat; /* 不要重複平鋪 */
+    }
+
   </style>
   </head>
   <body>
-    <p>以下是計算欄位</p>
     <p id="display"></p>
     <button onclick = "cal(1)">1</button>
     <button onclick = "cal(2)">2</button>
     <button onclick = "cal(3)">3</button>
-    <button onclick = "cl()">C</button>
-      <button onclick = "del()">←</button>
+    <button onclick = "ope('+')">+</button>
+    <button onclick = "del()">←</button>
     </p>
     <button onclick = "cal(4)">4</button>
     <button onclick = "cal(5)">5</button>
     <button onclick = "cal(6)">6</button>
-    <button onclick = "ope('+')">+</button>
+    <button onclick = "ope('-')">-</button>
     </p>
     <button onclick = "cal(7)">7</button>
     <button onclick = "cal(8)">8</button>
-    <button onclick = "cal(9)">9</button>
-    <button onclick = "ope('-')">-</button>
-    </p>
+    <button onclick = "cal(9)">9</button>  
     <button onclick = "ope('*')">*</button>
+    </p>
+    <button onclick = "cl()">C</button>
     <button onclick = "cal(0)">0</button>
-    <button onclick = "ope('/')">/</button>
     <button onclick = "result()">=</button>
+    <button onclick = "ope('/')">/</button>
 	  <script>
 
 	  let a = []; // 輸入的數字
@@ -57,7 +63,7 @@
 	  }
 
 	  function ope(op){
-	    a.push(op);
+      a.push(op);
 	  	updateDisplay();
 	  }
 	  
